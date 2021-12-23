@@ -1,4 +1,4 @@
-module fyne.io/gl
+module fyne.io/gl-js
 
 go 1.14
 
