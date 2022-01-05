@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build js && !wasm
 // +build js,!wasm
 
 package gl
@@ -42,11 +43,11 @@ type Uniform struct {
 	*js.Object
 }
 
-var NoAttrib = Attrib{0}
-var NoProgram = Program{nil}
-var NoShader = Shader{nil}
-var NoBuffer = Buffer{nil}
-var NoFramebuffer = Framebuffer{nil}
-var NoRenderbuffer = Renderbuffer{nil}
-var NoTexture = Texture{nil}
-var NoUniform = Uniform{nil}
+var NoAttrib Attrib
+var NoProgram Program
+var NoShader Shader
+var NoBuffer Buffer
+var NoFramebuffer Framebuffer
+var NoRenderbuffer Renderbuffer
+var NoTexture Texture
+var NoUniform Uniform

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build (darwin || linux) && (arm || arm64)
 // +build darwin linux
 // +build arm arm64
 
@@ -63,14 +64,14 @@ type Uniform struct {
 	Value int32
 }
 
-var NoAttrib = Attrib{0}
-var NoProgram = Program{0}
-var NoShader = Shader{0}
-var NoBuffer = Buffer{0}
-var NoFramebuffer = Framebuffer{0}
-var NoRenderbuffer = Renderbuffer{0}
-var NoTexture = Texture{0}
-var NoUniform = Uniform{0}
+var NoAttrib Attrib
+var NoProgram Program
+var NoShader Shader
+var NoBuffer Buffer
+var NoFramebuffer Framebuffer
+var NoRenderbuffer Renderbuffer
+var NoTexture Texture
+var NoUniform Uniform
 
 func (v Attrib) c() C.GLuint       { return C.GLuint(v.Value) }
 func (v Enum) c() C.GLenum         { return C.GLenum(v) }

@@ -1,3 +1,4 @@
+//go:build !js
 // +build !js
 
 package gl
@@ -46,11 +47,11 @@ type Uniform struct {
 	Value int32
 }
 
-var NoAttrib = Attrib{0}
-var NoProgram = Program{0}
-var NoShader = Shader{0}
-var NoBuffer = Buffer{0}
-var NoFramebuffer = Framebuffer{0}
-var NoRenderbuffer = Renderbuffer{0}
-var NoTexture = Texture{0}
-var NoUniform = Uniform{0}
+var NoAttrib Attrib
+var NoProgram Program
+var NoShader Shader
+var NoBuffer Buffer
+var NoFramebuffer Framebuffer
+var NoRenderbuffer Renderbuffer
+var NoTexture Texture
+var NoUniform Uniform
