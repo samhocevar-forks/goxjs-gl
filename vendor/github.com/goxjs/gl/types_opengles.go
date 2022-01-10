@@ -2,9 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build (darwin || linux) && (arm || arm64)
-// +build darwin linux
-// +build arm arm64
+// +build ios android
 
 package gl
 
@@ -64,15 +62,6 @@ type Uniform struct {
 	Value int32
 }
 
-var NoAttrib Attrib
-var NoProgram Program
-var NoShader Shader
-var NoBuffer Buffer
-var NoFramebuffer Framebuffer
-var NoRenderbuffer Renderbuffer
-var NoTexture Texture
-var NoUniform Uniform
-
 func (v Attrib) c() C.GLuint       { return C.GLuint(v.Value) }
 func (v Enum) c() C.GLenum         { return C.GLenum(v) }
 func (v Program) c() C.GLuint      { return C.GLuint(v.Value) }
@@ -82,6 +71,15 @@ func (v Framebuffer) c() C.GLuint  { return C.GLuint(v.Value) }
 func (v Renderbuffer) c() C.GLuint { return C.GLuint(v.Value) }
 func (v Texture) c() C.GLuint      { return C.GLuint(v.Value) }
 func (v Uniform) c() C.GLint       { return C.GLint(v.Value) }
+
+func (v Attrib) Valid() bool       { return v.Value != 0 }
+func (v Program) Valid() bool      { return v.Value != 0 }
+func (v Shader) Valid() bool       { return v.Value != 0 }
+func (v Buffer) Valid() bool       { return v.Value != 0 }
+func (v Framebuffer) Valid() bool  { return v.Value != 0 }
+func (v Renderbuffer) Valid() bool { return v.Value != 0 }
+func (v Texture) Valid() bool      { return v.Value != 0 }
+func (v Uniform) Valid() bool      { return v.Value != 0 }
 
 func glBoolean(b bool) C.GLboolean {
 	if b {
