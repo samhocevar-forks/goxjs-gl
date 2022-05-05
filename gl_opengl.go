@@ -115,6 +115,13 @@ func BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha Enum) 
 	gl.BlendFuncSeparate(uint32(sfactorRGB), uint32(dfactorRGB), uint32(sfactorAlpha), uint32(dfactorAlpha))
 }
 
+// BlitFramebuffer copies a block of pixels from the read framebuffer to the draw framebuffer.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glBlitFramebuffer.xhtml
+func BlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1 int, mask, filter Enum) {
+	gl.BlitFramebuffer(int32(srcX0), int32(srcY0), int32(srcX1), int32(srcY1), int32(dstX0), int32(dstY0), int32(dstX1), int32(dstY1), uint32(mask), uint32(filter))
+}
+
 // BufferData creates a new data store for the bound buffer object.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glBufferData.xhtml

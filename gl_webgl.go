@@ -76,6 +76,11 @@ func BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha Enum) 
 	c.Call("blendFuncSeparate", sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha)
 }
 
+func BlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1 int, mask, filter Enum) {
+	println("BlitFramebuffer: not yet tested (TODO: remove this after it's confirmed to work. Your feedback is welcome.)")
+	c.Call("blitFramebuffer", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter)
+}
+
 func BufferData(target Enum, data interface{}, usage Enum) {
 	c.Call("bufferData", target, data, usage)
 }
