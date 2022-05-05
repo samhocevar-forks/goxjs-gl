@@ -1,4 +1,4 @@
-module github.com/fyne-io/gl-js
+module github.com/samhocevar-forks/goxjs-gl
 
 go 1.14
 
