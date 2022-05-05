@@ -546,6 +546,10 @@ func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum,
 	c.Call("texImage2D", target, level, format, width, height, 0, format, ty, p)
 }
 
+func TexImage2DMultisample(target Enum, samples int, internalformat Enum, width, height int, fixedsamplelocations bool) {
+	println("TexImage2DMultisample: not available on WebGL.")
+}
+
 func TexSubImage2D(target Enum, level int, x, y, width, height int, format, ty Enum, data []byte) {
 	c.Call("texSubImage2D", target, level, x, y, width, height, format, ty, data)
 }

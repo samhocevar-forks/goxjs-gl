@@ -924,6 +924,13 @@ func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum,
 	gl.TexImage2D(uint32(target), int32(level), int32(format), int32(width), int32(height), 0, uint32(format), uint32(ty), p)
 }
 
+// TexImage2DMultisample configures a multisample texture.
+//
+// https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2DMultisample.xhtml
+func TexImage2DMultisample(target Enum, samples int, internalformat Enum, width, height int, fixedsamplelocations bool) {
+	gl.TexImage2DMultisample(uint32(target), int32(samples), uint32(internalformat), int32(width), int32(height), fixedsamplelocations)
+}
+
 // TexSubImage2D writes a subregion of a 2D texture image.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glTexSubImage2D.xhtml
