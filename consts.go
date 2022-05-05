@@ -275,6 +275,9 @@ const (
 	LOW_INT                                      = 0x8DF3
 	MEDIUM_INT                                   = 0x8DF4
 	HIGH_INT                                     = 0x8DF5
+	BUFFER                                       = 0x82E0
+	SHADER                                       = 0x82E1
+	PROGRAM                                      = 0x82E2
 	FRAMEBUFFER                                  = 0x8D40
 	RENDERBUFFER                                 = 0x8D41
 	RGBA4                                        = 0x8056
