@@ -490,6 +490,12 @@ func LinkProgram(p Program) {
 	C.glLinkProgram(p.c())
 }
 
+func ObjectLabel(o Object, label string) {
+	str := unsafe.Pointer(C.CString(label))
+	defer C.free(str)
+	C.glObjectLabel(o.Identifier().c(), C.GLUint(o.Name()), -1, (*C.GLchar)(str))
+}
+
 func PixelStorei(pname Enum, param int32) {
 	C.glPixelStorei(pname.c(), C.GLint(param))
 }

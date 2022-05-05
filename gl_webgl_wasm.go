@@ -580,6 +580,10 @@ func LinkProgram(p Program) {
 	c.Call("linkProgram", p.Value)
 }
 
+func ObjectLabel(o Object, label string) {
+	// not available in WebGL
+}
+
 func PixelStorei(pname Enum, param int32) {
 	c.Call("pixelStorei", int(pname), param)
 }
