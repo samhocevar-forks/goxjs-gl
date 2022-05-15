@@ -519,8 +519,7 @@ func GetVertexAttribf(src Attrib, pname Enum) float32 {
 }
 
 func GetVertexAttribfv(dst []float32, src Attrib, pname Enum) {
-	println("GetVertexAttribfv: not yet tested (TODO: remove this after it's confirmed to work. Your feedback is welcome.)")
-	result := c.Call("getVertexAttrib")
+	result := c.Call("getVertexAttrib", src.Value, int(pname))
 	length := result.Length()
 	for i := 0; i < length; i++ {
 		dst[i] = float32(result.Index(i).Float())
@@ -532,8 +531,7 @@ func GetVertexAttribi(src Attrib, pname Enum) int32 {
 }
 
 func GetVertexAttribiv(dst []int32, src Attrib, pname Enum) {
-	println("GetVertexAttribiv: not yet tested (TODO: remove this after it's confirmed to work. Your feedback is welcome.)")
-	result := c.Call("getVertexAttrib")
+	result := c.Call("getVertexAttrib", src.Value, int(pname))
 	length := result.Length()
 	for i := 0; i < length; i++ {
 		dst[i] = int32(result.Index(i).Int())
