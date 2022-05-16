@@ -819,6 +819,13 @@ func LinkProgram(p Program) {
 	gl.LinkProgram(p.Value)
 }
 
+// ObjectLabel labels a named object identified within a namespace.
+//
+// https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glObjectLabel.xhtml
+func ObjectLabel(o Object, label string) {
+	gl.ObjectLabel(uint32(o.Identifier()), o.Name(), -1, gl.Str(label+"\x00"))
+}
+
 // PixelStorei sets pixel storage parameters.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glPixelStorei.xhtml
