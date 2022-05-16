@@ -190,6 +190,11 @@ func BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha Enum) 
 	c.Call("blendFuncSeparate", int(sfactorRGB), int(dfactorRGB), int(sfactorAlpha), int(dfactorAlpha))
 }
 
+func BlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1 int, mask, filter Enum) {
+	println("BlitFramebuffer: not yet tested (TODO: remove this after it's confirmed to work. Your feedback is welcome.)")
+	c.Call("blitFramebuffer", srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, int(mask), int(filter))
+}
+
 func BufferData(target Enum, data interface{}, usage Enum) {
 	c.Call("bufferData", int(target), SliceToTypedArray(data), int(usage))
 }
@@ -647,6 +652,10 @@ func StencilOpSeparate(face, sfail, dpfail, dppass Enum) {
 
 func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum, data interface{}) {
 	c.Call("texImage2D", int(target), level, int(format), width, height, 0, int(format), int(ty), SliceToTypedArray(data))
+}
+
+func TexImage2DMultisample(target Enum, samples int, internalformat Enum, width, height int, fixedsamplelocations bool) {
+	println("TexImage2DMultisample: not available on WebGL.")
 }
 
 func TexSubImage2D(target Enum, level int, x, y, width, height int, format, ty Enum, data interface{}) {

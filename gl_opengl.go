@@ -115,6 +115,13 @@ func BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha Enum) 
 	gl.BlendFuncSeparate(uint32(sfactorRGB), uint32(dfactorRGB), uint32(sfactorAlpha), uint32(dfactorAlpha))
 }
 
+// BlitFramebuffer copies a block of pixels from the read framebuffer to the draw framebuffer.
+//
+// http://www.khronos.org/opengles/sdk/docs/man3/html/glBlitFramebuffer.xhtml
+func BlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1 int, mask, filter Enum) {
+	gl.BlitFramebuffer(int32(srcX0), int32(srcY0), int32(srcX1), int32(srcY1), int32(dstX0), int32(dstY0), int32(dstX1), int32(dstY1), uint32(mask), uint32(filter))
+}
+
 // BufferData creates a new data store for the bound buffer object.
 //
 // http://www.khronos.org/opengles/sdk/docs/man3/html/glBufferData.xhtml
@@ -922,6 +929,13 @@ func TexImage2D(target Enum, level int, width, height int, format Enum, ty Enum,
 		p = gl.Ptr(&data[0])
 	}
 	gl.TexImage2D(uint32(target), int32(level), int32(format), int32(width), int32(height), 0, uint32(format), uint32(ty), p)
+}
+
+// TexImage2DMultisample configures a multisample texture.
+//
+// https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2DMultisample.xhtml
+func TexImage2DMultisample(target Enum, samples int, internalformat Enum, width, height int, fixedsamplelocations bool) {
+	gl.TexImage2DMultisample(uint32(target), int32(samples), uint32(internalformat), int32(width), int32(height), fixedsamplelocations)
 }
 
 // TexSubImage2D writes a subregion of a 2D texture image.
